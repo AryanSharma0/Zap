@@ -1,0 +1,73 @@
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 40px auto;
+  width: 30vw;
+}
+
+.anim-container {
+  position: relative;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+.ball {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -20px;
+  width: 40px;
+  animation: bounce 1s cubic-bezier(0.61, 0.1, 0.92, 0.67) infinite alternate,
+    roll 1.4s infinite linear;
+}
+.running-balls {
+  position: absolute;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  right: -20px;
+}
+.ball-1 {
+  bottom: -5px;
+  width: 10px;
+  height: 10px;
+  animation: slip 1.7s infinite linear;
+}
+.ball-2 {
+  bottom: -3.5px;
+  width: 7px;
+  height: 7px;
+  animation: slip 2.2s infinite linear;
+}
+.ball-3 {
+  bottom: -2px;
+  width: 4px;
+  height: 4px;
+  animation: slip 3.2s infinite linear;
+}
+@keyframes bounce {
+  0%,
+  10% {
+    bottom: 50%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+@keyframes roll {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes slip {
+  0% {
+    right: -20px;
+  }
+  100% {
+    right: 110px;
+  }
+}

@@ -1,0 +1,11 @@
+transformers
+datasets
+pandas
+matplotlib
+sklearn
+nlp 
+tensorflow
+numpy
+fastapi 
+uvicorn
+nltk
