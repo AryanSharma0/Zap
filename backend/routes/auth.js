@@ -9,11 +9,7 @@ const authenticator = require("../middleware/authenticator");
 const path = require("path");
 const crypto = require("crypto");
 const readExploit = require("../Utils/FileRead/readExploit");
-const {
-  generateRSAKeys,
-  saveKeysToS3,
-  // getKeysFromS3,
-} = require("../Utils/Secrets/keyUtils");
+const { generateRSAKeys } = require("../Utils/Secrets/keyUtils");
 const envPath = path.resolve(__dirname, "../.env");
 require("dotenv").config({ path: envPath });
 
@@ -84,9 +80,6 @@ module.exports = () => {
         const JWT_SECRET = crypto.randomBytes(32).toString("hex");
         console.log(JWT_SECRET);
 
-        // Save the private key to AWS S3
-        await saveKeysToS3(user._id.toString(), JWT_SECRET, privateKey);
-
         const data = {
           user: {
             id: user.id,
@@ -147,8 +140,6 @@ module.exports = () => {
           },
         };
 
-        // Fetching JWT Secret key from backend
-        // const { jwtSecret } = getKeysFromS3(user._id.toString());
         const jwtSecret = "IamagoodCoder";
         const authToken = jwt.sign(data, jwtSecret, { expiresIn: "12h" });
         res.json(authToken);

@@ -4,7 +4,6 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
-    "@aws-sdk/s3-request-presigner": "^3.382.0",
     "@material-tailwind/react": "^2.0.4",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.5",
